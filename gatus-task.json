@@ -1,0 +1,29 @@
+{
+  "family": "gatus-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::008455859421:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "gatus",
+      "image": "008455859421.dkr.ecr.ap-southeast-1.amazonaws.com/lks-gatus:latest",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/gatus-task",
+          "awslogs-region": "ap-southeast-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
