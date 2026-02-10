@@ -35,7 +35,7 @@ env:
   ECR_REPOSITORY: lks-gatus
   ECS_SERVICE: gatus-service
   ECS_CLUSTER: lksoss-clusters
-  ECS_TASK_DEFINITION: gatus-task
+  ECS_TASK_DEFINITION: ./gatus-task.json   
                                                # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: gatus
                                                # containerDefinitions section of your task definition
